@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Animation Example with CSS and JavaScript">
+    <title>Animation Example</title>
+    <style>
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+        }
+
+        /* Animated Box */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            position: relative;
+            transition: all 1s ease;
+            /* Smooth transition */
+        }
+
+        /* Keyframes for Animation */
+        @keyframes moveAndScale {
+            0% {
+                transform: translateX(0) scale(1);
+                background-color: #3498db;
+            }
+
+            50% {
+                transform: translateX(200px) scale(1.5);
+                background-color: #e74c3c;
+            }
+
+            100% {
+                transform: translateX(0) scale(1);
+                background-color: #2ecc71;
+            }
+        }
+
+        /* Buttons styling */
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="ala1.html">Task 1</a>
+        <a href="ala.1.2.html">Task 2</a>
+        <a href="ala.1.3.html">Task 3</a>
+    </nav>
+
+    <div class="container">
+        <h1>CSS and JavaScript Animation Example</h1>
+
+        <!-- Animated Box -->
+        <div class="box" id="animatedBox"></div>
+
+        <!-- Control Buttons -->
+        <div>
+            <button onclick="startAnimation()">Start Animation</button>
+            <button onclick="stopAnimation()">Stop Animation</button>
+            <button onclick="resetAnimation()">Reset</button>
+        </div>
+    </div>
+    <script>
+        // JavaScript to control animation
+
+        // Function to start the animation
+        function startAnimation() {
+            let box = document.getElementById('animatedBox');
+            box.style.animation = 'moveAndScale 3s infinite'; // Apply animation
+        }
+
+        // Function to stop the animation
+        function stopAnimation() {
+            let box = document.getElementById('animatedBox');
+            box.style.animationPlayState = 'paused'; // Remove animation
+        }
+
+        // Function to reset the animation to its original state
+        function resetAnimation() {
+            let box = document.getElementById('animatedBox');
+            box.style.transform = 'translateX(0) scale(1)';
+            box.style.backgroundColor = '#3498db';
+            setTimeout(() => {
+                box.style.animation = '';
+            }, 0);
+        }
+    </script>
+</body>
+
+</html>
